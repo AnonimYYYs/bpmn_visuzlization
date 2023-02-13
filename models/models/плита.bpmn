@@ -1,0 +1,916 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0nqub8n" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="11.3.1">
+  <bpmn:process id="Process_0w7gr4r" isExecutable="false">
+    <bpmn:endEvent id="Event_1p5z46e" name="Конец сбора детали">
+      <bpmn:incoming>Flow_023d3fr</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:task id="Activity_1hgmjes" name="Окрас детали согласно ТТ&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_0vzxmnd</bpmn:incoming>
+      <bpmn:outgoing>Flow_023d3fr</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_023d3fr" sourceRef="Activity_1hgmjes" targetRef="Event_1p5z46e" />
+    <bpmn:task id="Activity_17w8cvn" name="Зачистка поверхности от сварочных брызг и шлаков&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_13sw72m</bpmn:incoming>
+      <bpmn:outgoing>Flow_0vzxmnd</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0vzxmnd" sourceRef="Activity_17w8cvn" targetRef="Activity_1hgmjes" />
+    <bpmn:task id="Activity_1hruur1" name="Обработка средством от сварочных брызг&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_198grc1</bpmn:incoming>
+      <bpmn:outgoing>Flow_1cfc0lq</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1cfc0lq" sourceRef="Activity_1hruur1" targetRef="Activity_0hqnyo0" />
+    <bpmn:task id="Activity_0qg2iyu" name="Контроль прихвата Ш№4&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_048iqoj</bpmn:incoming>
+      <bpmn:outgoing>Flow_1bg69uo</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1bg69uo" sourceRef="Activity_0qg2iyu" targetRef="Activity_1v05gbn" />
+    <bpmn:task id="Activity_0hqnyo0" name="Прихват Ш№4&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_1cfc0lq</bpmn:incoming>
+      <bpmn:outgoing>Flow_048iqoj</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_048iqoj" sourceRef="Activity_0hqnyo0" targetRef="Activity_0qg2iyu" />
+    <bpmn:task id="Activity_1j5grtv" name="Контроль выполнения шва Ш№4&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_0m9qkin</bpmn:incoming>
+      <bpmn:outgoing>Flow_13sw72m</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_13sw72m" sourceRef="Activity_1j5grtv" targetRef="Activity_17w8cvn" />
+    <bpmn:task id="Activity_1v05gbn" name="Выполнение шва Ш№4&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_1bg69uo</bpmn:incoming>
+      <bpmn:outgoing>Flow_0m9qkin</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0m9qkin" sourceRef="Activity_1v05gbn" targetRef="Activity_1j5grtv" />
+    <bpmn:task id="Activity_0d09w6g" name="Контроль сборочной операции&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_1td9k7l</bpmn:incoming>
+      <bpmn:outgoing>Flow_198grc1</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_198grc1" sourceRef="Activity_0d09w6g" targetRef="Activity_1hruur1" />
+    <bpmn:task id="Activity_0x8whsa" name="Установка на плиту поз.1 рамы&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_0abej3k</bpmn:incoming>
+      <bpmn:outgoing>Flow_1td9k7l</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1td9k7l" sourceRef="Activity_0x8whsa" targetRef="Activity_0d09w6g" />
+    <bpmn:task id="Activity_1pu9xix" name="Контроль качества сборки и сварки&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_13kdr9h</bpmn:incoming>
+      <bpmn:outgoing>Flow_0abej3k</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0abej3k" sourceRef="Activity_1pu9xix" targetRef="Activity_0x8whsa" />
+    <bpmn:task id="Activity_1q72n4q" name="Контроль выполнения Ш№4, Ш№5 Ш№6&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_0lwq72h</bpmn:incoming>
+      <bpmn:outgoing>Flow_13kdr9h</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_13kdr9h" sourceRef="Activity_1q72n4q" targetRef="Activity_1pu9xix" />
+    <bpmn:task id="Activity_0r4kg5a" name="Выполнение шва Ш№6&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_1tncr7i</bpmn:incoming>
+      <bpmn:outgoing>Flow_0lwq72h</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0lwq72h" sourceRef="Activity_0r4kg5a" targetRef="Activity_1q72n4q" />
+    <bpmn:task id="Activity_0o30whz" name="Выполнение шва Ш№5&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_1eo9m35</bpmn:incoming>
+      <bpmn:outgoing>Flow_1tncr7i</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1tncr7i" sourceRef="Activity_0o30whz" targetRef="Activity_0r4kg5a" />
+    <bpmn:task id="Activity_133n7yy" name="Выполнение шва Ш№4&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_1i6ieiw</bpmn:incoming>
+      <bpmn:outgoing>Flow_1eo9m35</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1eo9m35" sourceRef="Activity_133n7yy" targetRef="Activity_0o30whz" />
+    <bpmn:task id="Activity_1kknusj" name="Обработка средством от сварочных брызг&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_0br1ot6</bpmn:incoming>
+      <bpmn:outgoing>Flow_1i6ieiw</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1i6ieiw" sourceRef="Activity_1kknusj" targetRef="Activity_133n7yy" />
+    <bpmn:task id="Activity_1xw55sl" name="Контроль качества сборки и прихватки, отсутствия перекосов&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_0o3g8p4</bpmn:incoming>
+      <bpmn:outgoing>Flow_0br1ot6</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0br1ot6" sourceRef="Activity_1xw55sl" targetRef="Activity_1kknusj" />
+    <bpmn:task id="Activity_05w3khg" name="Установка узла на стол&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_07vap4d</bpmn:incoming>
+      <bpmn:outgoing>Flow_0o3g8p4</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0o3g8p4" sourceRef="Activity_05w3khg" targetRef="Activity_1xw55sl" />
+    <bpmn:task id="Activity_164vm2t" name="Съем узла, собранного на прихватках&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_0dha9ti</bpmn:incoming>
+      <bpmn:outgoing>Flow_07vap4d</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_07vap4d" sourceRef="Activity_164vm2t" targetRef="Activity_05w3khg" />
+    <bpmn:task id="Activity_0kb8jsb" name="Контроль прихватов Ш№4, Ш№5 Ш№6&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_1j9rqv4</bpmn:incoming>
+      <bpmn:outgoing>Flow_0dha9ti</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0dha9ti" sourceRef="Activity_0kb8jsb" targetRef="Activity_164vm2t" />
+    <bpmn:task id="Activity_1r8y0h3" name="Прихват Ш№6 с придерживанием прутка&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_01f1xax</bpmn:incoming>
+      <bpmn:outgoing>Flow_1j9rqv4</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1j9rqv4" sourceRef="Activity_1r8y0h3" targetRef="Activity_0kb8jsb" />
+    <bpmn:task id="Activity_1w8nf4k" name="Прихват Ш№5&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_1i7f4cj</bpmn:incoming>
+      <bpmn:outgoing>Flow_01f1xax</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_01f1xax" sourceRef="Activity_1w8nf4k" targetRef="Activity_1r8y0h3" />
+    <bpmn:task id="Activity_1udv4y8" name="Прихват Ш№4&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_1hokb2e</bpmn:incoming>
+      <bpmn:outgoing>Flow_1i7f4cj</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1i7f4cj" sourceRef="Activity_1udv4y8" targetRef="Activity_1w8nf4k" />
+    <bpmn:task id="Activity_1rnc923" name="Обработка средством от сварочных брызг&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_11s9kta</bpmn:incoming>
+      <bpmn:outgoing>Flow_1hokb2e</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1hokb2e" sourceRef="Activity_1rnc923" targetRef="Activity_1udv4y8" />
+    <bpmn:task id="Activity_1ufjzfq" name="Контроль сборочной операции&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_0ygf056</bpmn:incoming>
+      <bpmn:outgoing>Flow_11s9kta</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_11s9kta" sourceRef="Activity_1ufjzfq" targetRef="Activity_1rnc923" />
+    <bpmn:task id="Activity_0xyad3z" name="Установка в матрицу прутков поз.19&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_0qpxqbg</bpmn:incoming>
+      <bpmn:outgoing>Flow_0ygf056</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0ygf056" sourceRef="Activity_0xyad3z" targetRef="Activity_1ufjzfq" />
+    <bpmn:task id="Activity_0mx8x78" name="Установка в матрицу ребер поз.15,16&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_1diwf2w</bpmn:incoming>
+      <bpmn:outgoing>Flow_0qpxqbg</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0qpxqbg" sourceRef="Activity_0mx8x78" targetRef="Activity_0xyad3z" />
+    <bpmn:task id="Activity_1esgjs3" name="Установка в матрицу уголков поз.13,14&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_13fv91p</bpmn:incoming>
+      <bpmn:outgoing>Flow_1diwf2w</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1diwf2w" sourceRef="Activity_1esgjs3" targetRef="Activity_0mx8x78" />
+    <bpmn:task id="Activity_1ughjut" name="Установка в матрицу проушин поз.11,12&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_0rooxmi</bpmn:incoming>
+      <bpmn:outgoing>Flow_13fv91p</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_13fv91p" sourceRef="Activity_1ughjut" targetRef="Activity_1esgjs3" />
+    <bpmn:task id="Activity_1g0q003" name="Установка в матрицу пластин поз.2,3,4,5,6,7,8,9,24,25&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_1vfnpnj</bpmn:incoming>
+      <bpmn:outgoing>Flow_0rooxmi</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0rooxmi" sourceRef="Activity_1g0q003" targetRef="Activity_1ughjut" />
+    <bpmn:task id="Activity_15v90aw" name="Установка в матрицу двух боковых стенок поз.10&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_0u54yqj</bpmn:incoming>
+      <bpmn:outgoing>Flow_1vfnpnj</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1vfnpnj" sourceRef="Activity_15v90aw" targetRef="Activity_1g0q003" />
+    <bpmn:task id="Activity_1fk03yd" name="Обработка средством от сварочных брызг&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_0af3m0z</bpmn:incoming>
+      <bpmn:outgoing>Flow_0gbtsgs</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0gbtsgs" sourceRef="Activity_1fk03yd" targetRef="Activity_1ka1ug3" />
+    <bpmn:task id="Activity_063p47z" name="Контроль прихвата Ш№3&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_1yndpf4</bpmn:incoming>
+      <bpmn:outgoing>Flow_050ney6</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_050ney6" sourceRef="Activity_063p47z" targetRef="Activity_1vr5is5" />
+    <bpmn:task id="Activity_1ka1ug3" name="Прихват Ш№3 с соблюдением совпадения плоскостей&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_0gbtsgs</bpmn:incoming>
+      <bpmn:outgoing>Flow_1yndpf4</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1yndpf4" sourceRef="Activity_1ka1ug3" targetRef="Activity_063p47z" />
+    <bpmn:task id="Activity_1ggfjoi" name="Контроль выполнения шва Ш№3&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_0jvagvy</bpmn:incoming>
+      <bpmn:outgoing>Flow_0u54yqj</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0u54yqj" sourceRef="Activity_1ggfjoi" targetRef="Activity_15v90aw" />
+    <bpmn:task id="Activity_1vr5is5" name="Выполнение шва Ш№3&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_050ney6</bpmn:incoming>
+      <bpmn:outgoing>Flow_0jvagvy</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0jvagvy" sourceRef="Activity_1vr5is5" targetRef="Activity_1ggfjoi" />
+    <bpmn:task id="Activity_1hokmoh" name="Контроль сборочной операции&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_0sw7l3k</bpmn:incoming>
+      <bpmn:outgoing>Flow_0af3m0z</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0af3m0z" sourceRef="Activity_1hokmoh" targetRef="Activity_1fk03yd" />
+    <bpmn:task id="Activity_1imu6bo" name="Установка на швеллеры поз.23 швеллеров поз.23 симметрично&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_0e5s6uj</bpmn:incoming>
+      <bpmn:outgoing>Flow_0sw7l3k</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0sw7l3k" sourceRef="Activity_1imu6bo" targetRef="Activity_1hokmoh" />
+    <bpmn:task id="Activity_0kbyl7r" name="Установка на стол двух швеллеров поз.23&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_0cwe1ix</bpmn:incoming>
+      <bpmn:outgoing>Flow_0e5s6uj</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0e5s6uj" sourceRef="Activity_0kbyl7r" targetRef="Activity_1imu6bo" />
+    <bpmn:task id="Activity_17alu2m" name="Обработка средством от сварочных брызг&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_06ma3zb</bpmn:incoming>
+      <bpmn:outgoing>Flow_0vq4wl7</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0vq4wl7" sourceRef="Activity_17alu2m" targetRef="Activity_0uuvset" />
+    <bpmn:task id="Activity_1ofnel0" name="Контроль прихвата Ш№2&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_1lx5sod</bpmn:incoming>
+      <bpmn:outgoing>Flow_018i9py</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_018i9py" sourceRef="Activity_1ofnel0" targetRef="Activity_0zz9hvt" />
+    <bpmn:task id="Activity_0e7nxec" name="Обработка средством от сварочных брызг&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_0kkf089</bpmn:incoming>
+      <bpmn:outgoing>Flow_194qkh7</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_194qkh7" sourceRef="Activity_0e7nxec" targetRef="Activity_14w8qt6" />
+    <bpmn:task id="Activity_0uuvset" name="Прихват Ш№2&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_0vq4wl7</bpmn:incoming>
+      <bpmn:outgoing>Flow_1lx5sod</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1lx5sod" sourceRef="Activity_0uuvset" targetRef="Activity_1ofnel0" />
+    <bpmn:task id="Activity_03u5y97" name="Контроль выполнения шва Ш№2&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_1r9tdt8</bpmn:incoming>
+      <bpmn:outgoing>Flow_0cwe1ix</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0cwe1ix" sourceRef="Activity_03u5y97" targetRef="Activity_0kbyl7r" />
+    <bpmn:task id="Activity_0zz9hvt" name="Выполнение шва Ш№2&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_018i9py</bpmn:incoming>
+      <bpmn:outgoing>Flow_1r9tdt8</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1r9tdt8" sourceRef="Activity_0zz9hvt" targetRef="Activity_03u5y97" />
+    <bpmn:task id="Activity_0fbceb0" name="Контроль сборочной операции&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_1lci66p</bpmn:incoming>
+      <bpmn:outgoing>Flow_06ma3zb</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_06ma3zb" sourceRef="Activity_0fbceb0" targetRef="Activity_17alu2m" />
+    <bpmn:task id="Activity_16uvndl" name="Установка на ребра поз.15, 16 втулок поз.18 по сгибу&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_0l79jzt</bpmn:incoming>
+      <bpmn:outgoing>Flow_1lci66p</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1lci66p" sourceRef="Activity_16uvndl" targetRef="Activity_0fbceb0" />
+    <bpmn:task id="Activity_0ci6xc4" name="Контроль выполнения шва Ш№1&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_0jogw5e</bpmn:incoming>
+      <bpmn:outgoing>Flow_0l79jzt</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0l79jzt" sourceRef="Activity_0ci6xc4" targetRef="Activity_16uvndl" />
+    <bpmn:task id="Activity_0l88a68" name="Выполнение шва Ш№1&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_1wixsxw</bpmn:incoming>
+      <bpmn:outgoing>Flow_0jogw5e</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0jogw5e" sourceRef="Activity_0l88a68" targetRef="Activity_0ci6xc4" />
+    <bpmn:task id="Activity_0b7ie4l" name="Контроль прихвата Ш№1&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_05nj98i</bpmn:incoming>
+      <bpmn:outgoing>Flow_1wixsxw</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1wixsxw" sourceRef="Activity_0b7ie4l" targetRef="Activity_0l88a68" />
+    <bpmn:task id="Activity_14w8qt6" name="Прихват Ш№1&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_194qkh7</bpmn:incoming>
+      <bpmn:outgoing>Flow_05nj98i</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_05nj98i" sourceRef="Activity_14w8qt6" targetRef="Activity_0b7ie4l" />
+    <bpmn:task id="Activity_0su1mnw" name="Контроль сборочной операции&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_0vrq53f</bpmn:incoming>
+      <bpmn:outgoing>Flow_0kkf089</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0kkf089" sourceRef="Activity_0su1mnw" targetRef="Activity_0e7nxec" />
+    <bpmn:task id="Activity_0ww8g7h" name="Установка на боковые пластины поз.10 втулок поз.17 соосно отверстиям&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_1yzm8iy</bpmn:incoming>
+      <bpmn:outgoing>Flow_0vrq53f</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0vrq53f" sourceRef="Activity_0ww8g7h" targetRef="Activity_0su1mnw" />
+    <bpmn:task id="Activity_1fxlcr6" name="Установка двух боковых пластин поз.10&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_11u0bxs</bpmn:incoming>
+      <bpmn:outgoing>Flow_1yzm8iy</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1yzm8iy" sourceRef="Activity_1fxlcr6" targetRef="Activity_0ww8g7h" />
+    <bpmn:task id="Activity_1v8tjk5" name="Установка на ребра поз.15, 16 втулок поз.17 соосно отверстиям&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_0usg37v</bpmn:incoming>
+      <bpmn:outgoing>Flow_11u0bxs</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_11u0bxs" sourceRef="Activity_1v8tjk5" targetRef="Activity_1fxlcr6" />
+    <bpmn:task id="Activity_0qw3q2z" name="Установка ребер поз.15, 16&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_0expq70</bpmn:incoming>
+      <bpmn:outgoing>Flow_0usg37v</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0usg37v" sourceRef="Activity_0qw3q2z" targetRef="Activity_1v8tjk5" />
+    <bpmn:task id="Activity_0xjh1px" name="Установка на пластины поз.7 втулок поз.22 соосно отверстиям&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_04qkd2e</bpmn:incoming>
+      <bpmn:outgoing>Flow_0expq70</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0expq70" sourceRef="Activity_0xjh1px" targetRef="Activity_0qw3q2z" />
+    <bpmn:task id="Activity_0jwkylc" name="Установка двух пластин поз.7&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_0o4w9md</bpmn:incoming>
+      <bpmn:outgoing>Flow_04qkd2e</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_04qkd2e" sourceRef="Activity_0jwkylc" targetRef="Activity_0xjh1px" />
+    <bpmn:task id="Activity_1op79go" name="Установка на пластины поз.9 втулок поз.17 соосно отверстиям&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_1tgw6he</bpmn:incoming>
+      <bpmn:outgoing>Flow_0o4w9md</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0o4w9md" sourceRef="Activity_1op79go" targetRef="Activity_0jwkylc" />
+    <bpmn:task id="Activity_1ubpauf" name="Установка двух пластин поз.9&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_0e44458</bpmn:incoming>
+      <bpmn:outgoing>Flow_1tgw6he</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1tgw6he" sourceRef="Activity_1ubpauf" targetRef="Activity_1op79go" />
+    <bpmn:task id="Activity_0w8gifs" name="Установка двух втулок поз.21 и двух втулок поз.20 соосно отверстиям&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_0k9qasu</bpmn:incoming>
+      <bpmn:outgoing>Flow_0e44458</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0e44458" sourceRef="Activity_0w8gifs" targetRef="Activity_1ubpauf" />
+    <bpmn:task id="Activity_10je2kz" name="Установка на стол четырех проушин поз.12&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_0j44m4w</bpmn:incoming>
+      <bpmn:outgoing>Flow_0k9qasu</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0k9qasu" sourceRef="Activity_10je2kz" targetRef="Activity_0w8gifs" />
+    <bpmn:task id="Activity_1ff3q4u" name="Входной контроль деталей изделия&#10;fun=constant&#10;params=1&#10;capacity=1">
+      <bpmn:incoming>Flow_0wint5g</bpmn:incoming>
+      <bpmn:outgoing>Flow_0j44m4w</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0j44m4w" sourceRef="Activity_1ff3q4u" targetRef="Activity_10je2kz" />
+    <bpmn:startEvent id="Event_0tm39l2" name="Поступление деталей изделия &#34;плита&#34;&#10;fun=sequence&#10;params=1,0,0">
+      <bpmn:outgoing>Flow_0wint5g</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0wint5g" sourceRef="Event_0tm39l2" targetRef="Activity_1ff3q4u" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_0w7gr4r">
+      <bpmndi:BPMNShape id="BPMNShape_19l15v2" bpmnElement="Event_1p5z46e">
+        <dc:Bounds x="592" y="3662" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="578" y="3705" width="65" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0wizxsb" bpmnElement="Activity_1hgmjes">
+        <dc:Bounds x="390" y="3640" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_17w8cvn_di" bpmnElement="Activity_17w8cvn">
+        <dc:Bounds x="200" y="3640" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1cqxcrx" bpmnElement="Activity_1hruur1">
+        <dc:Bounds x="200" y="3210" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1esu9i7" bpmnElement="Activity_0qg2iyu">
+        <dc:Bounds x="390" y="3340" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_18dajdj" bpmnElement="Activity_0hqnyo0">
+        <dc:Bounds x="200" y="3340" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1gbgk7m" bpmnElement="Activity_1j5grtv">
+        <dc:Bounds x="390" y="3490" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1jly7rt" bpmnElement="Activity_1v05gbn">
+        <dc:Bounds x="200" y="3490" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0924993" bpmnElement="Activity_0d09w6g">
+        <dc:Bounds x="390" y="3060" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1quzdlh" bpmnElement="Activity_0x8whsa">
+        <dc:Bounds x="200" y="3060" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1pu9xix_di" bpmnElement="Activity_1pu9xix">
+        <dc:Bounds x="200" y="2930" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0jgsglr" bpmnElement="Activity_1q72n4q">
+        <dc:Bounds x="770" y="2780" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0cyuwou" bpmnElement="Activity_0r4kg5a">
+        <dc:Bounds x="580" y="2780" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0keihwa" bpmnElement="Activity_0o30whz">
+        <dc:Bounds x="390" y="2780" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_01o0peo" bpmnElement="Activity_133n7yy">
+        <dc:Bounds x="200" y="2780" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_13pe4l0" bpmnElement="Activity_1kknusj">
+        <dc:Bounds x="200" y="2640" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1xw55sl_di" bpmnElement="Activity_1xw55sl">
+        <dc:Bounds x="580" y="2450" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_05w3khg_di" bpmnElement="Activity_05w3khg">
+        <dc:Bounds x="390" y="2450" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_164vm2t_di" bpmnElement="Activity_164vm2t">
+        <dc:Bounds x="200" y="2450" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0kb8jsb_di" bpmnElement="Activity_0kb8jsb">
+        <dc:Bounds x="770" y="2310" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1r8y0h3_di" bpmnElement="Activity_1r8y0h3">
+        <dc:Bounds x="580" y="2310" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_179t9ed" bpmnElement="Activity_1w8nf4k">
+        <dc:Bounds x="390" y="2310" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0nke1pb" bpmnElement="Activity_1udv4y8">
+        <dc:Bounds x="200" y="2310" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1nubhio" bpmnElement="Activity_1rnc923">
+        <dc:Bounds x="200" y="2170" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1jjbdj2" bpmnElement="Activity_1ufjzfq">
+        <dc:Bounds x="1360" y="2030" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0xyad3z_di" bpmnElement="Activity_0xyad3z">
+        <dc:Bounds x="1160" y="2030" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0mx8x78_di" bpmnElement="Activity_0mx8x78">
+        <dc:Bounds x="970" y="2030" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_17nyk8o" bpmnElement="Activity_1esgjs3">
+        <dc:Bounds x="780" y="2030" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_13lw4r3" bpmnElement="Activity_1ughjut">
+        <dc:Bounds x="590" y="2030" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0ry0yje" bpmnElement="Activity_1g0q003">
+        <dc:Bounds x="400" y="2030" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_15v90aw_di" bpmnElement="Activity_15v90aw">
+        <dc:Bounds x="210" y="2030" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0iatbq1" bpmnElement="Activity_1fk03yd">
+        <dc:Bounds x="210" y="1610" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_09py9i4" bpmnElement="Activity_063p47z">
+        <dc:Bounds x="400" y="1740" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0pyb1rd" bpmnElement="Activity_1ka1ug3">
+        <dc:Bounds x="210" y="1740" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_19dowpd" bpmnElement="Activity_1ggfjoi">
+        <dc:Bounds x="400" y="1890" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0ckeddb" bpmnElement="Activity_1vr5is5">
+        <dc:Bounds x="210" y="1890" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1okin8j" bpmnElement="Activity_1hokmoh">
+        <dc:Bounds x="590" y="1460" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1imu6bo_di" bpmnElement="Activity_1imu6bo">
+        <dc:Bounds x="400" y="1460" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0kbyl7r_di" bpmnElement="Activity_0kbyl7r">
+        <dc:Bounds x="210" y="1460" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_17alu2m_di" bpmnElement="Activity_17alu2m">
+        <dc:Bounds x="210" y="1040" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1xlutpb" bpmnElement="Activity_1ofnel0">
+        <dc:Bounds x="400" y="1180" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0e7nxec_di" bpmnElement="Activity_0e7nxec">
+        <dc:Bounds x="210" y="470" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0suwgh0" bpmnElement="Activity_0uuvset">
+        <dc:Bounds x="210" y="1180" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_11lub6l" bpmnElement="Activity_03u5y97">
+        <dc:Bounds x="400" y="1320" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0wgb3o0" bpmnElement="Activity_0zz9hvt">
+        <dc:Bounds x="210" y="1320" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0fbceb0_di" bpmnElement="Activity_0fbceb0">
+        <dc:Bounds x="400" y="900" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_16uvndl_di" bpmnElement="Activity_16uvndl">
+        <dc:Bounds x="210" y="900" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0ph6pkj" bpmnElement="Activity_0ci6xc4">
+        <dc:Bounds x="400" y="750" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1h0kedb" bpmnElement="Activity_0l88a68">
+        <dc:Bounds x="210" y="750" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_01n4dsw" bpmnElement="Activity_0b7ie4l">
+        <dc:Bounds x="400" y="600" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1b5mt23" bpmnElement="Activity_14w8qt6">
+        <dc:Bounds x="210" y="600" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0su1mnw_di" bpmnElement="Activity_0su1mnw">
+        <dc:Bounds x="2110" y="280" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ww8g7h_di" bpmnElement="Activity_0ww8g7h">
+        <dc:Bounds x="1920" y="280" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1fxlcr6_di" bpmnElement="Activity_1fxlcr6">
+        <dc:Bounds x="1730" y="280" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1v8tjk5_di" bpmnElement="Activity_1v8tjk5">
+        <dc:Bounds x="1540" y="280" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0qw3q2z_di" bpmnElement="Activity_0qw3q2z">
+        <dc:Bounds x="1350" y="280" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0xjh1px_di" bpmnElement="Activity_0xjh1px">
+        <dc:Bounds x="1160" y="280" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0jwkylc_di" bpmnElement="Activity_0jwkylc">
+        <dc:Bounds x="970" y="280" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1op79go_di" bpmnElement="Activity_1op79go">
+        <dc:Bounds x="780" y="280" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1ubpauf_di" bpmnElement="Activity_1ubpauf">
+        <dc:Bounds x="590" y="280" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0w8gifs_di" bpmnElement="Activity_0w8gifs">
+        <dc:Bounds x="400" y="280" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0wyb8ag" bpmnElement="Activity_10je2kz">
+        <dc:Bounds x="210" y="280" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1et54de" bpmnElement="Activity_1ff3q4u">
+        <dc:Bounds x="360" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1phbdyc" bpmnElement="Event_0tm39l2">
+        <dc:Bounds x="242" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="217" y="145" width="86" height="66" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_0bv0qer" bpmnElement="Flow_023d3fr">
+        <di:waypoint x="490" y="3680" />
+        <di:waypoint x="592" y="3680" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0vzxmnd_di" bpmnElement="Flow_0vzxmnd">
+        <di:waypoint x="300" y="3680" />
+        <di:waypoint x="390" y="3680" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1s5c0ex" bpmnElement="Flow_1cfc0lq">
+        <di:waypoint x="250" y="3290" />
+        <di:waypoint x="250" y="3310" />
+        <di:waypoint x="170" y="3310" />
+        <di:waypoint x="170" y="3380" />
+        <di:waypoint x="200" y="3380" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_08b24nk" bpmnElement="Flow_1bg69uo">
+        <di:waypoint x="440" y="3420" />
+        <di:waypoint x="440" y="3460" />
+        <di:waypoint x="160" y="3460" />
+        <di:waypoint x="160" y="3530" />
+        <di:waypoint x="200" y="3530" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_0c6bdv7" bpmnElement="Flow_048iqoj">
+        <di:waypoint x="300" y="3380" />
+        <di:waypoint x="390" y="3380" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_13sw72m_di" bpmnElement="Flow_13sw72m">
+        <di:waypoint x="440" y="3570" />
+        <di:waypoint x="440" y="3610" />
+        <di:waypoint x="170" y="3610" />
+        <di:waypoint x="170" y="3680" />
+        <di:waypoint x="200" y="3680" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1dtujqu" bpmnElement="Flow_0m9qkin">
+        <di:waypoint x="300" y="3530" />
+        <di:waypoint x="390" y="3530" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_0wlxejl" bpmnElement="Flow_198grc1">
+        <di:waypoint x="440" y="3140" />
+        <di:waypoint x="440" y="3180" />
+        <di:waypoint x="170" y="3180" />
+        <di:waypoint x="170" y="3250" />
+        <di:waypoint x="200" y="3250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_17jkfvb" bpmnElement="Flow_1td9k7l">
+        <di:waypoint x="300" y="3100" />
+        <di:waypoint x="390" y="3100" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0abej3k_di" bpmnElement="Flow_0abej3k">
+        <di:waypoint x="250" y="3010" />
+        <di:waypoint x="250" y="3035" />
+        <di:waypoint x="170" y="3035" />
+        <di:waypoint x="170" y="3100" />
+        <di:waypoint x="200" y="3100" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_13kdr9h_di" bpmnElement="Flow_13kdr9h">
+        <di:waypoint x="820" y="2860" />
+        <di:waypoint x="820" y="2900" />
+        <di:waypoint x="170" y="2900" />
+        <di:waypoint x="170" y="2970" />
+        <di:waypoint x="200" y="2970" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_02r7l3i" bpmnElement="Flow_0lwq72h">
+        <di:waypoint x="680" y="2820" />
+        <di:waypoint x="770" y="2820" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_076t5jn" bpmnElement="Flow_1tncr7i">
+        <di:waypoint x="490" y="2820" />
+        <di:waypoint x="580" y="2820" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_07gr0w1" bpmnElement="Flow_1eo9m35">
+        <di:waypoint x="300" y="2820" />
+        <di:waypoint x="390" y="2820" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_0yv0m1q" bpmnElement="Flow_1i6ieiw">
+        <di:waypoint x="250" y="2720" />
+        <di:waypoint x="250" y="2750" />
+        <di:waypoint x="170" y="2750" />
+        <di:waypoint x="170" y="2820" />
+        <di:waypoint x="200" y="2820" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0br1ot6_di" bpmnElement="Flow_0br1ot6">
+        <di:waypoint x="630" y="2530" />
+        <di:waypoint x="630" y="2580" />
+        <di:waypoint x="170" y="2580" />
+        <di:waypoint x="170" y="2680" />
+        <di:waypoint x="200" y="2680" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1638" y="3116" width="50" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0o3g8p4_di" bpmnElement="Flow_0o3g8p4">
+        <di:waypoint x="490" y="2490" />
+        <di:waypoint x="580" y="2490" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_07vap4d_di" bpmnElement="Flow_07vap4d">
+        <di:waypoint x="300" y="2490" />
+        <di:waypoint x="390" y="2490" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0dha9ti_di" bpmnElement="Flow_0dha9ti">
+        <di:waypoint x="820" y="2390" />
+        <di:waypoint x="820" y="2420" />
+        <di:waypoint x="170" y="2420" />
+        <di:waypoint x="170" y="2490" />
+        <di:waypoint x="200" y="2490" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1j9rqv4_di" bpmnElement="Flow_1j9rqv4">
+        <di:waypoint x="680" y="2350" />
+        <di:waypoint x="770" y="2350" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_01f1xax_di" bpmnElement="Flow_01f1xax">
+        <di:waypoint x="490" y="2350" />
+        <di:waypoint x="580" y="2350" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_16mibis" bpmnElement="Flow_1i7f4cj">
+        <di:waypoint x="300" y="2350" />
+        <di:waypoint x="390" y="2350" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1hokb2e_di" bpmnElement="Flow_1hokb2e">
+        <di:waypoint x="250" y="2250" />
+        <di:waypoint x="250" y="2280" />
+        <di:waypoint x="170" y="2280" />
+        <di:waypoint x="170" y="2350" />
+        <di:waypoint x="200" y="2350" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_01sn2ch" bpmnElement="Flow_11s9kta">
+        <di:waypoint x="1410" y="2110" />
+        <di:waypoint x="1410" y="2140" />
+        <di:waypoint x="170" y="2140" />
+        <di:waypoint x="170" y="2210" />
+        <di:waypoint x="200" y="2210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ygf056_di" bpmnElement="Flow_0ygf056">
+        <di:waypoint x="1260" y="2070" />
+        <di:waypoint x="1360" y="2070" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0qpxqbg_di" bpmnElement="Flow_0qpxqbg">
+        <di:waypoint x="1070" y="2070" />
+        <di:waypoint x="1160" y="2070" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1diwf2w_di" bpmnElement="Flow_1diwf2w">
+        <di:waypoint x="880" y="2070" />
+        <di:waypoint x="970" y="2070" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_043cnm0" bpmnElement="Flow_13fv91p">
+        <di:waypoint x="690" y="2070" />
+        <di:waypoint x="780" y="2070" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0rooxmi_di" bpmnElement="Flow_0rooxmi">
+        <di:waypoint x="500" y="2070" />
+        <di:waypoint x="590" y="2070" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1vfnpnj_di" bpmnElement="Flow_1vfnpnj">
+        <di:waypoint x="310" y="2070" />
+        <di:waypoint x="400" y="2070" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_0sddj0x" bpmnElement="Flow_0gbtsgs">
+        <di:waypoint x="260" y="1690" />
+        <di:waypoint x="260" y="1710" />
+        <di:waypoint x="180" y="1710" />
+        <di:waypoint x="180" y="1780" />
+        <di:waypoint x="210" y="1780" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1cs441p" bpmnElement="Flow_050ney6">
+        <di:waypoint x="450" y="1820" />
+        <di:waypoint x="450" y="1860" />
+        <di:waypoint x="170" y="1860" />
+        <di:waypoint x="170" y="1930" />
+        <di:waypoint x="210" y="1930" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_0r23efb" bpmnElement="Flow_1yndpf4">
+        <di:waypoint x="310" y="1780" />
+        <di:waypoint x="400" y="1780" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0u54yqj_di" bpmnElement="Flow_0u54yqj">
+        <di:waypoint x="450" y="1970" />
+        <di:waypoint x="450" y="2000" />
+        <di:waypoint x="170" y="2000" />
+        <di:waypoint x="170" y="2070" />
+        <di:waypoint x="210" y="2070" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_028einb" bpmnElement="Flow_0jvagvy">
+        <di:waypoint x="310" y="1930" />
+        <di:waypoint x="400" y="1930" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0af3m0z_di" bpmnElement="Flow_0af3m0z">
+        <di:waypoint x="640" y="1540" />
+        <di:waypoint x="640" y="1580" />
+        <di:waypoint x="180" y="1580" />
+        <di:waypoint x="180" y="1650" />
+        <di:waypoint x="210" y="1650" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0sw7l3k_di" bpmnElement="Flow_0sw7l3k">
+        <di:waypoint x="500" y="1500" />
+        <di:waypoint x="590" y="1500" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0e5s6uj_di" bpmnElement="Flow_0e5s6uj">
+        <di:waypoint x="310" y="1500" />
+        <di:waypoint x="400" y="1500" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0vq4wl7_di" bpmnElement="Flow_0vq4wl7">
+        <di:waypoint x="260" y="1120" />
+        <di:waypoint x="260" y="1150" />
+        <di:waypoint x="180" y="1150" />
+        <di:waypoint x="180" y="1220" />
+        <di:waypoint x="210" y="1220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_018i9py_di" bpmnElement="Flow_018i9py">
+        <di:waypoint x="450" y="1260" />
+        <di:waypoint x="450" y="1290" />
+        <di:waypoint x="170" y="1290" />
+        <di:waypoint x="170" y="1360" />
+        <di:waypoint x="210" y="1360" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_194qkh7_di" bpmnElement="Flow_194qkh7">
+        <di:waypoint x="260" y="550" />
+        <di:waypoint x="260" y="575" />
+        <di:waypoint x="170" y="575" />
+        <di:waypoint x="170" y="640" />
+        <di:waypoint x="210" y="640" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1sz4lp2" bpmnElement="Flow_1lx5sod">
+        <di:waypoint x="310" y="1220" />
+        <di:waypoint x="400" y="1220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0cwe1ix_di" bpmnElement="Flow_0cwe1ix">
+        <di:waypoint x="450" y="1400" />
+        <di:waypoint x="450" y="1430" />
+        <di:waypoint x="180" y="1430" />
+        <di:waypoint x="180" y="1500" />
+        <di:waypoint x="210" y="1500" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_18pvquw" bpmnElement="Flow_1r9tdt8">
+        <di:waypoint x="310" y="1360" />
+        <di:waypoint x="400" y="1360" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_06ma3zb_di" bpmnElement="Flow_06ma3zb">
+        <di:waypoint x="450" y="980" />
+        <di:waypoint x="450" y="1010" />
+        <di:waypoint x="180" y="1010" />
+        <di:waypoint x="180" y="1080" />
+        <di:waypoint x="210" y="1080" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1lci66p_di" bpmnElement="Flow_1lci66p">
+        <di:waypoint x="310" y="940" />
+        <di:waypoint x="400" y="940" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0l79jzt_di" bpmnElement="Flow_0l79jzt">
+        <di:waypoint x="450" y="830" />
+        <di:waypoint x="450" y="870" />
+        <di:waypoint x="180" y="870" />
+        <di:waypoint x="180" y="940" />
+        <di:waypoint x="210" y="940" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_11rzyb9" bpmnElement="Flow_0jogw5e">
+        <di:waypoint x="310" y="790" />
+        <di:waypoint x="400" y="790" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_072cc1f" bpmnElement="Flow_1wixsxw">
+        <di:waypoint x="450" y="680" />
+        <di:waypoint x="450" y="710" />
+        <di:waypoint x="170" y="710" />
+        <di:waypoint x="170" y="790" />
+        <di:waypoint x="210" y="790" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1hrguuf" bpmnElement="Flow_05nj98i">
+        <di:waypoint x="310" y="640" />
+        <di:waypoint x="400" y="640" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0kkf089_di" bpmnElement="Flow_0kkf089">
+        <di:waypoint x="2160" y="360" />
+        <di:waypoint x="2160" y="400" />
+        <di:waypoint x="170" y="400" />
+        <di:waypoint x="170" y="510" />
+        <di:waypoint x="210" y="510" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0vrq53f_di" bpmnElement="Flow_0vrq53f">
+        <di:waypoint x="2020" y="320" />
+        <di:waypoint x="2110" y="320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1yzm8iy_di" bpmnElement="Flow_1yzm8iy">
+        <di:waypoint x="1830" y="320" />
+        <di:waypoint x="1920" y="320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_11u0bxs_di" bpmnElement="Flow_11u0bxs">
+        <di:waypoint x="1640" y="320" />
+        <di:waypoint x="1730" y="320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0usg37v_di" bpmnElement="Flow_0usg37v">
+        <di:waypoint x="1450" y="320" />
+        <di:waypoint x="1540" y="320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0expq70_di" bpmnElement="Flow_0expq70">
+        <di:waypoint x="1260" y="320" />
+        <di:waypoint x="1350" y="320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_04qkd2e_di" bpmnElement="Flow_04qkd2e">
+        <di:waypoint x="1070" y="320" />
+        <di:waypoint x="1160" y="320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0o4w9md_di" bpmnElement="Flow_0o4w9md">
+        <di:waypoint x="880" y="320" />
+        <di:waypoint x="970" y="320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1tgw6he_di" bpmnElement="Flow_1tgw6he">
+        <di:waypoint x="690" y="320" />
+        <di:waypoint x="780" y="320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0e44458_di" bpmnElement="Flow_0e44458">
+        <di:waypoint x="500" y="320" />
+        <di:waypoint x="590" y="320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0k9qasu_di" bpmnElement="Flow_0k9qasu">
+        <di:waypoint x="310" y="320" />
+        <di:waypoint x="400" y="320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_09vmugx" bpmnElement="Flow_0j44m4w">
+        <di:waypoint x="410" y="160" />
+        <di:waypoint x="410" y="200" />
+        <di:waypoint x="170" y="200" />
+        <di:waypoint x="170" y="320" />
+        <di:waypoint x="210" y="320" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1205" y="98" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_04hmy8v" bpmnElement="Flow_0wint5g">
+        <di:waypoint x="278" y="120" />
+        <di:waypoint x="360" y="120" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

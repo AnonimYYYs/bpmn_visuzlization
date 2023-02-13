@@ -1,0 +1,2 @@
+flask >= 2.0
+xmltodict >= 0.12
