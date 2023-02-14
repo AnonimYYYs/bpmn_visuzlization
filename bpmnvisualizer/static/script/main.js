@@ -230,5 +230,5 @@ function stats(){
 }
 
 
-generateNewCanvas(`default`);
+generateNewCanvas(bg_name);
 

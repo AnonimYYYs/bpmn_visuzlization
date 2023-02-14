@@ -11,18 +11,18 @@ import bpmnvisualizer.bpmn.parser.dict_parser as dict_parser
 
 class BPMNVisualModel:
     def __init__(
-            self,
-            bpmn_folder_path,
-            image_folder_path,
-            ip,
-            port,
-            main_root,
-            step_root,
-            reset_root,
-            set_model_root,
-            write_stats,
-            dropout_list_root,
-            init_bpmn_name,
+        self,
+        bpmn_folder_path,
+        image_folder_path,
+        ip,
+        port,
+        main_root,
+        step_root,
+        reset_root,
+        set_model_root,
+        write_stats,
+        dropout_list_root,
+        init_bpmn_name,
     ):
         self.ip = ip
         self.port = port
@@ -75,7 +75,19 @@ class BPMNVisualModel:
         return app
 
     def main(self):
-        self.core.newModel(c.constructFullBpmnPath(self.bpmn_folder_path, self.bpmn_name))
+        model_name = request.args.get('model_name', default=None)
+        if model_name:
+            imgs = os.listdir(self.image_folder_path)
+            imgs = [i[:-4] for i in imgs if i.endswith(".png")]
+            bpmns = os.listdir(self.bpmn_folder_path)
+            bpmns = [b[:-5] for b in bpmns if b.endswith(".bpmn")]
+            if not(model_name in imgs) or not(model_name in bpmns):
+                model_name = self.bpmn_name
+        else:
+            model_name = self.bpmn_name
+
+
+        self.core.newModel(c.constructFullBpmnPath(self.bpmn_folder_path, model_name))
         return render_template(
             "index.html",
             ip = self.ip,
@@ -85,7 +97,7 @@ class BPMNVisualModel:
             set_model_root = self.set_model_root,
             write_stats = self.write_stats_root,
             dropout_list_root = self.dropout_list_root,
-            bpmn_name = self.bpmn_name,
+            bpmn_name = model_name,
         )
 
 

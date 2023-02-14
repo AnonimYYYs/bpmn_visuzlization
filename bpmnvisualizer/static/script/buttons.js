@@ -99,7 +99,13 @@ fetch(DROPLIST)
         for (let i = 0; i < arr.length; i++) {
 //            console.log(arr[i]);
 //            console.log(theHTMLToInsert);
-            theHTMLToInsert += `<option value="${i}">${arr[i]}</option>`
+
+            if (bg_name == arr[i]) {
+                theHTMLToInsert += `<option value="${i}" selected="selected">${arr[i]}</option>`;
+            }
+            else {
+                theHTMLToInsert += `<option value="${i}">${arr[i]}</option>`;
+            }
         }
 
     theHTMLToInsert += '</select>';
