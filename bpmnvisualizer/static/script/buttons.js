@@ -66,27 +66,11 @@ const buttonReset = createButton(buttonResetText, "btn-secondary", onResetButton
 buttonApp.appendChild(buttonReset);
 
 
-// --- >>> input model name <<< ---
-//var inputName = document.createElement('input');
-//inputName.type = "text";
-//inputName.size = 20
-//inputName.placeholder = "new model name";
-//inputName.classList.add("model-button");
-//buttonApp.appendChild(inputName);
 
 
 
-var theHTMLToInsert = `
-<select name="model-dropout-names" id="model-dropout-names">
-  <option value="ring">кольцо строповочное</option>
-  <option value="kron">кронштейн</option>
-  <option value="kronturn">кронштейн поворотный</option>
-  <option value="finger">палец</option>
-  <option value="plate">плита</option>
-  <option value="trap">трапеция</option>
-</select>`;
+let theHTMLToInsert = '<select name="model-dropout-names" id="model-dropout-names">';
 
-buttonApp.insertAdjacentHTML("beforeend", theHTMLToInsert);
 
 
 // --- >>> new model button <<< ---
@@ -97,8 +81,7 @@ function onModelButtonUp() {
     generateNewCanvas(e.options[e.selectedIndex].text);
 }
 
-const buttonModel = createButton(buttonModelText, "btn-secondary", onModelButtonUp);
-buttonApp.appendChild(buttonModel);
+
 
 
 
@@ -108,5 +91,41 @@ function onStatsButtonUp() {
     stats();
 }
 
-const buttonStats = createButton(buttonStatsText, "btn-info", onStatsButtonUp);
-buttonApp.appendChild(buttonStats);
+
+fetch(DROPLIST)
+.then((response) => response.json())
+.then((data) => {
+        arr = data.response
+        for (let i = 0; i < arr.length; i++) {
+//            console.log(arr[i]);
+//            console.log(theHTMLToInsert);
+            theHTMLToInsert += `<option value="${i}">${arr[i]}</option>`
+        }
+
+    theHTMLToInsert += '</select>';
+    console.log(theHTMLToInsert);
+    buttonApp.insertAdjacentHTML("beforeend", theHTMLToInsert);
+
+    const buttonModel = createButton(buttonModelText, "btn-secondary", onModelButtonUp);
+    buttonApp.appendChild(buttonModel);
+
+    const buttonStats = createButton(buttonStatsText, "btn-info", onStatsButtonUp);
+    buttonApp.appendChild(buttonStats);
+});
+
+
+
+
+//  <option value="ring">кольцо строповочное</option>
+//  <option value="kron">кронштейн</option>
+//  <option value="kronturn">кронштейн поворотный</option>
+//  <option value="finger">палец</option>
+//  <option value="plate">плита</option>
+//  <option value="trap">трапеция</option>
+
+
+
+
+
+
+

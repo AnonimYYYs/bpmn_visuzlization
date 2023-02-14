@@ -21,7 +21,8 @@ class BPMNVisualModel:
             reset_root,
             set_model_root,
             write_stats,
-            init_bpmn_name
+            dropout_list_root,
+            init_bpmn_name,
     ):
         self.ip = ip
         self.port = port
@@ -32,6 +33,7 @@ class BPMNVisualModel:
         self.reset_root = reset_root
         self.set_model_root = set_model_root
         self.write_stats_root = write_stats
+        self.dropout_list_root = dropout_list_root
 
         self.bpmn_name = init_bpmn_name
 
@@ -66,6 +68,10 @@ class BPMNVisualModel:
         def write_stats_from_model():
             return self.write_stats()
 
+        @app.route(f'{self.dropout_list_root}')
+        def get_dropout_list():
+            return self.get_dropout_list()
+
         return app
 
     def main(self):
@@ -78,6 +84,7 @@ class BPMNVisualModel:
             reset_root = self.reset_root,
             set_model_root = self.set_model_root,
             write_stats = self.write_stats_root,
+            dropout_list_root = self.dropout_list_root,
             bpmn_name = self.bpmn_name,
         )
 
@@ -143,6 +150,23 @@ class BPMNVisualModel:
         #     jsonFile.write(json.dumps(data, ensure_ascii=False, indent=4))
         # print('-----------------------------\n       file written\n-----------------------------')
         # return send_from_directory(directory='results', path='data.json', as_attachment=True)
+
+
+    def get_dropout_list(self):
+        imgs = os.listdir(self.image_folder_path)
+        imgs = [i[:-4] for i in imgs if i.endswith(".png")]
+        bpmns = os.listdir(self.bpmn_folder_path)
+        bpmns = [b[:-5] for b in bpmns if b.endswith(".bpmn")]
+        common = list(set(bpmns).intersection(imgs))
+        response = flask.Response()
+        response.headers["Access-Control-Allow-Origin"] = "*"
+        response.headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
+        response.headers['Access-Control-Request-Method'] = '*'
+        response.headers[
+            'Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+        response.mimetype = 'application/json'
+        response.data = json.dumps({'response': common})
+        return response
 
 
 

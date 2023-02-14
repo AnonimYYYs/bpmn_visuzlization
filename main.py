@@ -10,7 +10,8 @@ initialData = {
     "reset_root": "/reset",
     "set_model_root": "/set_model",
     "write_stats": "/write_stats",
-    "init_bpmn_name": 'кольцо строповочное'
+    "dropout_list_root": "/dropout_list",
+    "init_bpmn_name": 'кольцо строповочное',
 }
 
 if __name__ == '__main__':
@@ -25,6 +26,7 @@ if __name__ == '__main__':
         set_model_root=initialData['set_model_root'],
         write_stats=initialData['write_stats'],
         init_bpmn_name=initialData['init_bpmn_name'],
+        dropout_list_root=initialData['dropout_list_root']
     )
     app = model.get_flask_app()
 
